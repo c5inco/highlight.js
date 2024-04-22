@@ -203,6 +203,21 @@ export default function(hljs) {
         ]
       },
       {
+        className: 'method-declaration',
+        begin: /\b\w+\(/,
+        end: /\)/,
+        contains: [
+          'self',
+          {
+            className: 'named-argument',
+            begin: /\b\w+\s*=/,
+            end: /./
+          },
+          STRING,
+          hljs.C_NUMBER_MODE
+        ]
+      },
+      {
         begin: [
           /class|interface|trait/,
           /\s+/,
